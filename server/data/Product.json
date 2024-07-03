@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1",
+    "name": "Product A",
+    "picture": "https://example.com/product_a.jpg",
+    "stock": 100,
+    "price": 50.0
+  },
+  {
+    "id": "2",
+    "name": "Product B",
+    "picture": "https://example.com/product_b.jpg",
+    "stock": 80,
+    "price": 70.0
+  },
+  {
+    "id": "3",
+    "name": "Product C",
+    "picture": "https://example.com/product_c.jpg",
+    "stock": 120,
+    "price": 45.0
+  },
+  {
+    "id": "4",
+    "name": "Product D",
+    "picture": "https://example.com/product_d.jpg",
+    "stock": 90,
+    "price": 55.0
+  },
+  {
+    "id": "5",
+    "name": "Product E",
+    "picture": "https://example.com/product_e.jpg",
+    "stock": 110,
+    "price": 60.0
+  },
+  {
+    "id": "6",
+    "name": "Product F",
+    "picture": "https://example.com/product_f.jpg",
+    "stock": 95,
+    "price": 65.0
+  },
+  {
+    "id": "7",
+    "name": "Product G",
+    "picture": "https://example.com/product_g.jpg",
+    "stock": 85,
+    "price": 75.0
+  },
+  {
+    "id": "8",
+    "name": "Product H",
+    "picture": "https://example.com/product_h.jpg",
+    "stock": 105,
+    "price": 40.0
+  },
+  {
+    "id": "9",
+    "name": "Product I",
+    "picture": "https://example.com/product_i.jpg",
+    "stock": 115,
+    "price": 85.0
+  },
+  {
+    "id": "10",
+    "name": "Product J",
+    "picture": "https://example.com/product_j.jpg",
+    "stock": 75,
+    "price": 90.0
+  }
+]

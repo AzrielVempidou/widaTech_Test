@@ -22,20 +22,20 @@ const Product = {
 ### Invoice Model
 ```javascript
 const Invoice = {
-  id: String,
-  date: Date,
-  customerName: String,
-  salespersonName: String,
-  notes: String,
-  products: [
-    {
-      productId: String,
-      quantity: Number,
-      price: Number
-    }
-  ],
-  totalAmountPaid: Number
+    date: DataTypes.DATE,
+    customerName: DataTypes.STRING,
+    employeeId:DataTypes.INTEGER,
+    notes: DataTypes.STRING,
+    totalAmountPaid: DataTypes.INTEGER
 }
+```
+```js
+const InvoiceCard = {
+  invoiceId: DataTypes.INTEGER,
+  productId: DataTypes.INTEGER,
+  quantity: DataTypes.INTEGER,
+  price: DataTypes.INTEGER
+} 
 ```
 ### Revenue Model
 ```javascript
@@ -56,14 +56,14 @@ const Revenue = {
   "username": "john_doe",
   "email": "john@example.com",
   "password": "securepassword",
-  "role": "staff"  // or "admin"
+  "role": "admin"  // or "admin"
 }
 ```
 - Response:
 ```json
 {
   "success": true,
-  "message": "User registered successfully"
+  "message": "User with email john@example.com created succesfully"
 }
 ```
 ### User Login
@@ -72,7 +72,7 @@ const Revenue = {
 - Request Body:
 ```json
 {
-  "username": "john_doe",
+  "email": "john@example.com",
   "password": "securepassword"
 }
 ```
@@ -119,7 +119,9 @@ const Revenue = {
 ### Get Invoices with Pagination
 - Endpoint: /api/invoices
 - Method: GET
-- Query Parameters: page, limit
+- Query Parameters:
+  - page=[integer] (default: 1) - Specifies the page number for pagination.
+  - limit=[integer] (default: 10) - Specifies the number of invoices per page.
 - Response:
 ```json
 {
@@ -145,6 +147,15 @@ const Revenue = {
   }
 }
 ```
+### Delete Invoices 
+- Endpoint: /api/invoices/:id
+- Method: DELETE
+
+- Response:
+```json
+Code: 200 OK
+Content: { "message": "Invoice deleted successfully" }
+```
 ### Product Autocomplete
 Search Products
 - Endpoint: /api/products/search
@@ -152,22 +163,22 @@ Search Products
 - Query Parameters: q (search query)
 - Response:
 ```json
-[
-  {
-    "id": "1",
-    "name": "Product 1",
-    "picture": "url_to_picture",
-    "stock": 100,
-    "price": 50
-  },
-  {
-    "id": "2",
-    "name": "Product 2",
-    "picture": "url_to_picture",
-    "stock": 200,
-    "price": 75
-  }
-]
+{
+  "invoices": [
+    {
+      "id": "1",
+      "invoiceNumber": "INV-001",
+      "amount": 100.00,
+      "createdAt": "2024-07-03T10:15:30Z",
+      "updatedAt": "2024-07-03T10:15:30Z"
+      // Additional fields as per your schema
+    },
+    // Additional invoices...
+  ],
+  "totalPages": 5,
+  "currentPage": 1
+}
+
 ```
 ### Revenue Data
 Fetch Revenue Data
@@ -177,16 +188,8 @@ Fetch Revenue Data
 - Response:
 ```json
 {
-  "data": [
-    {
-      "date": "2024-07-01",
-      "revenue": 500
-    },
-    {
-      "date": "2024-07-02",
-      "revenue": 700
-    }
-  ]
+    "success": true,
+    "revenue": 300
 }
 ```
 
